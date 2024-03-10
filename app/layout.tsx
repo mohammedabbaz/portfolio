@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/widgets/NavBar";
+import NavBar from "@/components/widgets/NavBar/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
+import MobileNavBar from "@/components/widgets/NavBar/MobileNavBar";
+import Footer from "@/components/widgets/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,8 +27,14 @@ export default function RootLayout({
           // enableSystem
           // disableTransitionOnChange
         >
+          {/* nav for larg screen  */}
           <NavBar />
+          {/* nav for small screen */}
+          <MobileNavBar/>
+
           {children}
+          {/* footer  */}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
